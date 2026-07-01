@@ -1,0 +1,150 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:testdaemon.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:m="clr-namespace:testdaemon.Models"
+        xmlns:services="clr-namespace:testdaemon.Service"
+        xmlns:convertors="clr-namespace:testdaemon.Convertors"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="700"
+        Width="400" Height="700"
+        x:Class="testdaemon.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="testdaemon"
+        Background="#1E1E2E">
+
+  <Window.Resources>
+    <convertors:LevelBrushConverter  x:Key="LevelBrush"/>
+    <convertors:BoolToBrushConverter x:Key="BoolBrush"/>
+  </Window.Resources>
+
+  <Window.Styles>
+
+    <Style Selector="Expander">
+      <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style Selector="Button">
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="Padding" Value="12,5"/>
+    </Style>
+    <Style Selector="TextBox">
+      <Setter Property="Background" Value="#181825"/>
+      <Setter Property="Foreground" Value="#CDD6F4"/>
+      <Setter Property="BorderBrush" Value="#313244"/>
+      <Setter Property="CornerRadius" Value="5"/>
+      <Setter Property="Padding" Value="7,4"/>
+      <Setter Property="FontSize" Value="13"/>
+    </Style>
+    <Style Selector="ListBox">
+      <Setter Property="Background" Value="#181825"/>
+      <Setter Property="BorderBrush" Value="#313244"/>
+    </Style>
+    
+    <Style Selector="Expander:expanded /template/ Border#ExpanderContent">
+      <Setter Property="Padding" Value="0"/>
+    </Style>
+    
+    
+  </Window.Styles>
+
+  <Grid RowDefinitions="Auto,*,180">
+
+    <!--Строка подключения-->
+    <StackPanel Grid.Row="0"
+                Orientation="Horizontal"
+                Spacing="15"
+                Margin="10">
+      <TextBox Watermark="Адрес" Text="{Binding Host}" IsEnabled="{Binding !Connected}"/>
+      <TextBox Watermark="Порт" Text="{Binding Port}" IsEnabled="{Binding !Connected}"/>
+      <DropDownButton Content="Действие">
+        <DropDownButton.Flyout>
+          <MenuFlyout>
+            <MenuItem Header="Подключение" Command="{Binding ConnectCommand}"/>
+            <MenuItem Header="Разрыв связи" Command="{Binding DisconnectCommand}"/>
+            <MenuItem Header="Ping" Command="{Binding PingCommand}"/>
+          </MenuFlyout>
+        </DropDownButton.Flyout>
+      </DropDownButton>
+    </StackPanel>
+
+    <!--Списки устройств и сессий-->
+    <ScrollViewer Grid.Row="1" Margin="10,0,10,10">
+      <StackPanel Spacing="8">
+
+        <!--Список устройств-->
+        <Expander Header="Список устройств" IsExpanded="True">
+          <ListBox ItemsSource="{Binding Devices}"
+                   SelectedItem="{Binding SelectedDevice}"
+                   Height="150">
+
+            <ListBox.ContextMenu>
+              <ContextMenu>
+                <MenuItem Header="Информация по устройству" Command="{Binding DeviceInfoCommand}"/>
+                <MenuItem Header="Создать сессию" Command="{Binding SessionCreateCommand}"/>
+              </ContextMenu>
+            </ListBox.ContextMenu>
+
+            <ListBox.ItemTemplate>
+              <DataTemplate x:DataType="services:DeviceEntry">
+                <TextBlock Foreground="#CDD6F4" FontSize="12"
+                           FontFamily="Cascadia Code,Consolas,monospace"
+                           Text="{Binding}"/>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </Expander>
+
+        <!--Список активных сессий-->
+        <Expander Header="Список сессий" IsExpanded="True">
+          <ListBox ItemsSource="{Binding Sessions}"
+                   SelectedItem="{Binding SelectedSession}"
+                   Height="130">
+
+            <ListBox.ContextMenu>
+              <ContextMenu>
+                <MenuItem Header="Закрыть соединение"
+                          Command="{Binding SessionCloseCommand}"
+                          IsEnabled="{Binding Connected}"/>
+
+                <!--TODO: пользователь должен выбирать устройство, а не сессию-->
+                <MenuItem Header="Версия устройства"
+                          Command="{Binding GetVersionCommand}"
+                          IsEnabled="{Binding Connected}"/>
+              </ContextMenu>
+            </ListBox.ContextMenu>
+
+            <ListBox.ItemTemplate>
+              <DataTemplate x:DataType="services:SessionEntry">
+                <TextBlock Foreground="#A6E3A1" FontSize="12"
+                           FontFamily="Cascadia Code,Consolas,monospace"
+                           Text="{Binding}"/>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </Expander>
+
+      </StackPanel>
+    </ScrollViewer>
+
+    <!--Логи — всегда видны внизу окна-->
+    <Border Grid.Row="2" Margin="10,0,10,10" Background="#11111B"
+            BorderBrush="#313244" BorderThickness="1" CornerRadius="6">
+      <ListBox ItemsSource="{Binding Logs}" Background="Transparent"
+               BorderThickness="0">
+        <ListBox.ItemTemplate>
+          <DataTemplate x:DataType="m:LogEntry">
+            <TextBlock Text="{Binding Display}"
+                       Foreground="{Binding Level, Converter={StaticResource LevelBrush}}"
+                       FontFamily="Cascadia Code,Consolas,Menlo,monospace"
+                       FontSize="12" Margin="4,1"/>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </Border>
+
+  </Grid>
+</Window>
