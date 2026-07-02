@@ -148,3 +148,4 @@ C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\
 C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.pdb
 C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.genruntimeconfig.cache
 C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\ref\testdaemon.dll
+C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.sourcelink.json

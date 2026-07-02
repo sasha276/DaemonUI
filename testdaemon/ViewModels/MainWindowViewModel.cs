@@ -30,13 +30,13 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty] string _canData     = "DE AD BE EF 00 00 00 00";
     [ObservableProperty] string _canInterval = "100";
     [ObservableProperty] bool   _isPeriodic;
-    
-    [ObservableProperty] int    _canIfaceIndex;   
 
-    
+    [ObservableProperty] int    _canIfaceIndex;
+
+
     [ObservableProperty] int    _uartModeIndex   = 1;
-    
-    [ObservableProperty] string _uartData        = "48 65 6C 6C 6F";   
+
+    [ObservableProperty] string _uartData        = "48 65 6C 6C 6F";
     [ObservableProperty] bool   _uartDataAsAscii;
     [ObservableProperty] string _uartStatus      = "";
 
@@ -52,8 +52,9 @@ public partial class MainWindowViewModel : ViewModelBase
     private const int BaseDataPort = 15001;
 
     private DaemonClient? _client;
-    
-    
+
+    private static readonly string[] CanIfaceNames = ["CAN1", "CAN2", "CAN3", "CAN4", "CANTech"];
+
     [RelayCommand]
     async Task ConnectAsync()
     {
@@ -124,7 +125,7 @@ public partial class MainWindowViewModel : ViewModelBase
         }
         catch (Exception ex) { Log(ex.Message, LogLevel.Err); }
     }
-    
+
     [RelayCommand]
     async Task SessionCreateAsync()
     {
@@ -209,7 +210,9 @@ public partial class MainWindowViewModel : ViewModelBase
                 return;
             }
 
-            var ifaceName = iface == 1 ? "CAN1" : "CAN2";
+            var ifaceName = iface >= 1 && iface <= CanIfaceNames.Length
+                ? CanIfaceNames[iface - 1]
+                : $"iface{iface}";
 
             if (IsPeriodic)
             {
@@ -317,20 +320,20 @@ public partial class MainWindowViewModel : ViewModelBase
                                   null, out var cmd))
                 { Log("Bad cmd hex", LogLevel.Warn); return; }
 
-            ushort sessId = 0;
-            ushort.TryParse(RawSession, out sessId);
+            ushort.TryParse(RawSession, out var sessId);
 
             var payload = RawPayload.Trim().Length > 0 ? ParseHexBytes(RawPayload) : [];
 
-            var seq = (ushort)new Random().Next(0, 0xFFFF);
-            var pkt = Packet.Build(_client!.ClientId, sessId, seq, cmd, payload);
             Log($"Raw send  cmd=0x{cmd:X4}  session={sessId}  payload=[{RawPayload.Trim()}]",
                 LogLevel.Info);
-            Log("(raw send not wired to socket — use the dedicated buttons above)", LogLevel.Warn);
+
+            var resp = await _client!.SendRawAsync(sessId, cmd, payload);
+            var hex  = string.Join(' ', resp.Select(b => b.ToString("X2")));
+            Log($"Raw recv  {resp.Length} byte(s)  [{hex}]", LogLevel.Ok);
         }
         catch (Exception ex) { Log(ex.Message, LogLevel.Err); }
     }
-    
+
     [RelayCommand] void ClearLog() => Logs.Clear();
 
     private void Log(string msg, LogLevel level = LogLevel.Info)
@@ -361,7 +364,7 @@ public partial class MainWindowViewModel : ViewModelBase
             result[i] = Convert.ToByte(parts[i].Replace("0x",""), 16);
         return result;
     }
-    
+
     [RelayCommand]
     async Task StreamOpenAsync()
     {

@@ -122,11 +122,11 @@ public class DaemonClient : IAsyncDisposable
 
     // ── core send/recv ────────────────────────────────────────────────────────
 
-    private async Task<byte[]> TxRxAsync(ushort sessionId, Cmd cmd, byte[] payload,
-                                          int timeoutMs = 3000)
+    private async Task<byte[]> TxRxAsync(ushort sessionId, ushort cmd, byte[] payload,
+                                          int timeoutMs = 8000)
     {
         var seq = _seq++;
-        var pkt = Packet.Build(_clientId, sessionId, seq, (ushort)cmd, payload);
+        var pkt = Packet.Build(_clientId, sessionId, seq, cmd, payload);
 
         await _udp.SendAsync(pkt, pkt.Length, _ep);
 
@@ -135,7 +135,7 @@ public class DaemonClient : IAsyncDisposable
         {
             UdpReceiveResult res;
             try   { res = await _udp.ReceiveAsync(cts.Token); }
-            catch { throw new TimeoutException($"No response to {cmd} (seq={seq})"); }
+            catch { throw new TimeoutException($"No response to cmd=0x{cmd:X4} (seq={seq})"); }
 
             var (_, _, rseq, rcmd, rpay) = Packet.Parse(res.Buffer);
             if (rseq != seq) continue;   // не наш пакет — ждём дальше
@@ -146,6 +146,9 @@ public class DaemonClient : IAsyncDisposable
             return rpay;
         }
     }
+
+    private Task<byte[]> TxRxAsync(ushort sessionId, Cmd cmd, byte[] payload, int timeoutMs = 3000)
+        => TxRxAsync(sessionId, (ushort)cmd, payload, timeoutMs);
 
     // ── public API ────────────────────────────────────────────────────────────
 
@@ -259,7 +262,7 @@ public class DaemonClient : IAsyncDisposable
     public async Task CanWriteAsync(ushort sessionId, byte canIface, ushort canId, byte[] data)
     {
         var pay = new byte[3 + data.Length];
-        pay[0] = canIface;                 // 1 = CAN1, 2 = CAN2
+        pay[0] = canIface;                 // 1=CAN1 2=CAN2 3=CAN3 4=CAN4 5=CANTech
         Packet.From(canId).CopyTo(pay, 1); // u16 big-endian
         data.CopyTo(pay, 3);
         await TxRxAsync(sessionId, Cmd.CanWrite, pay);
@@ -271,7 +274,7 @@ public class DaemonClient : IAsyncDisposable
     {
         var pay = new byte[5 + data.Length];
         Packet.From(intervalMs).CopyTo(pay, 0); // u16 big-endian
-        pay[2] = canIface;                      // 1 = CAN1, 2 = CAN2
+        pay[2] = canIface;                      // 1=CAN1 2=CAN2 3=CAN3 4=CAN4 5=CANTech
         Packet.From(canId).CopyTo(pay, 3);      // u16 big-endian
         data.CopyTo(pay, 5);
         await TxRxAsync(sessionId, Cmd.CanPeriodicStart, pay);
@@ -293,6 +296,13 @@ public class DaemonClient : IAsyncDisposable
     // для appi2 функция uart_read — заглушка и всегда возвращает пустой массив.
     public async Task<byte[]> UartReadAsync(ushort sessionId)
         => await TxRxAsync(sessionId, Cmd.UartRead, []);
+
+    // ── Raw ───────────────────────────────────────────────────────────────────
+    // Отправляет произвольную команду напрямую — для тестирования протокола,
+    // пока для конкретной команды нет отдельного метода (например, у Phlox
+    // сейчас реализован только Master-хендшейк, всё остальное — через Raw).
+    public Task<byte[]> SendRawAsync(ushort sessionId, ushort cmd, byte[] payload)
+        => TxRxAsync(sessionId, cmd, payload);
 
     public async ValueTask DisposeAsync()
     {
