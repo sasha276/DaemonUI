@@ -49,12 +49,50 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty] ObservableCollection<StreamViewModel> _streams = [];
     [ObservableProperty] StreamViewModel? _selectedStream;
 
+    [ObservableProperty] private CommandsService _commands = new();
+
+    public MainWindowViewModel()
+    {
+        try
+        {
+            var json = FileService.LoadCommandsJson();
+            Commands.Load(json);
+        }
+        catch (Exception ex) { Log($"LoadCommands: {ex.Message}", LogLevel.Err); }
+    }
+
+    [RelayCommand]
+    async Task SendPresetCommandAsync(CommandBody? cmd)
+    {
+        if (cmd == null) return;
+        if (!CheckSession()) return;
+        try
+        {
+            var canId = Convert.ToUInt16(cmd.Id.Replace("0x", "").Trim(), 16);
+            var iface = (byte)(CanIfaceIndex + 1);
+            var data  = ParseHexBytes(cmd.Body);
+
+            if (data.Length > 8)
+            {
+                Log($"Preset '{cmd.Name}': {data.Length} bytes, max 8", LogLevel.Warn);
+                return;
+            }
+
+            await _client!.CanWriteAsync(SelectedSession!.Id, iface, canId, data);
+            Log($"CanWrite preset '{cmd.Name}'  id=0x{canId:X3}  data=[{cmd.Body}]", LogLevel.Ok);
+        }
+        catch (Exception ex) { Log(ex.Message, LogLevel.Err); }
+    }
+
     private const int BaseDataPort = 15001;
 
     private DaemonClient? _client;
 
     private static readonly string[] CanIfaceNames = ["CAN1", "CAN2", "CAN3", "CAN4", "CANTech"];
 
+   
+    
+    
     [RelayCommand]
     async Task ConnectAsync()
     {
