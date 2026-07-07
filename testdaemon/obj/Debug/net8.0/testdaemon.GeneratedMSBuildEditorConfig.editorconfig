@@ -24,5 +24,8 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/Views/CanStreamView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -41,7 +41,7 @@ public enum UartMode : byte
     Disabled = 0x09,
 }
 
-// ── Data models ───────────────────────────────────────────────────────────────
+// ── Data models 
 
 public record DeviceEntry(int Index, ushort Vid, ushort Pid, byte Bus, string Port,
                           string Manufacturer = "", string Product = "")
@@ -56,7 +56,7 @@ public record SessionEntry(ushort Id, ushort DeviceIndex, string DeviceKey)
     public override string ToString() => $"session {Id}  →  {DeviceKey}";
 }
 
-// ── Packet builder / parser ───────────────────────────────────────────────────
+// ── Packet builder / parser 
 
 public static class Packet
 {
@@ -102,7 +102,7 @@ public static class Packet
     public static byte[] From(uint v)   => [(byte)(v>>24),(byte)(v>>16),(byte)(v>>8),(byte)v];
 }
 
-// ── DaemonClient ─────────────────────────────────────────────────────────────
+// ── DaemonClient 
 
 public class DaemonClient : IAsyncDisposable
 {
@@ -120,7 +120,7 @@ public class DaemonClient : IAsyncDisposable
         _udp = new UdpClient();
     }
 
-    // ── core send/recv ────────────────────────────────────────────────────────
+    // ── core send/recv 
 
     private async Task<byte[]> TxRxAsync(ushort sessionId, ushort cmd, byte[] payload,
                                           int timeoutMs = 8000)
@@ -150,7 +150,7 @@ public class DaemonClient : IAsyncDisposable
     private Task<byte[]> TxRxAsync(ushort sessionId, Cmd cmd, byte[] payload, int timeoutMs = 3000)
         => TxRxAsync(sessionId, (ushort)cmd, payload, timeoutMs);
 
-    // ── public API ────────────────────────────────────────────────────────────
+    // ── public API 
 
     public async Task RegisterAsync()
     {
@@ -245,7 +245,6 @@ public class DaemonClient : IAsyncDisposable
 
     // Stream
     public async Task<ushort> OpenStreamAsync(ushort sessionId, ushort dataPort, byte canIface = 1)
-//                                                                                          ^ было 0, стало 1
     {
         var pay = new byte[4];
         Packet.From(dataPort).CopyTo(pay, 0);
@@ -283,7 +282,7 @@ public class DaemonClient : IAsyncDisposable
     public async Task CanPeriodicStopAsync(ushort sessionId)
         => await TxRxAsync(sessionId, Cmd.CanPeriodicStop, []);
 
-    // ── UART ──────────────────────────────────────────────────────────────────
+    //  UART 
     // payload: [mode:u8]. Демон сам формирует USB-пакет [0x01,0x01,mode,0x00].
     public async Task UartConfigureAsync(ushort sessionId, UartMode mode)
         => await TxRxAsync(sessionId, Cmd.UartConfigure, [(byte)mode]);
@@ -297,7 +296,7 @@ public class DaemonClient : IAsyncDisposable
     public async Task<byte[]> UartReadAsync(ushort sessionId)
         => await TxRxAsync(sessionId, Cmd.UartRead, []);
 
-    // ── Raw ───────────────────────────────────────────────────────────────────
+    //  Raw 
     // Отправляет произвольную команду напрямую — для тестирования протокола,
     // пока для конкретной команды нет отдельного метода (например, у Phlox
     // сейчас реализован только Master-хендшейк, всё остальное — через Raw).

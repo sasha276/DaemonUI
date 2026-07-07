@@ -22,6 +22,11 @@
 
   <Window.Styles>
 
+    <Style Selector="TabItem">
+      <Setter Property=""/>
+    </Style>
+    
+    
     <Style Selector="Expander">
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
     </Style>
@@ -82,7 +87,22 @@
       <StackPanel Spacing="8">
         <!--Devices-->
         <Expander Header="Список устройств">
-          <StackPanel Spacing="6">
+          
+          <TabControl>
+            <TabItem Header="Devices" FontSize="14">
+              
+            </TabItem>
+            
+            <TabItem Header="Sessions">
+              
+            </TabItem>
+            
+            <TabItem Header="Streams">
+              
+            </TabItem>
+          </TabControl>
+          
+          <!--<StackPanel Spacing="6">
             <ListBox ItemsSource="{Binding Devices}"
                      SelectedItem="{Binding SelectedDevice}"
                      Height="130">
@@ -104,7 +124,7 @@
             </ListBox>
             <Button Content="Обновить список" Command="{Binding DeviceListCommand}"
                     IsEnabled="{Binding Connected}" Background="#313244" HorizontalAlignment="Stretch"/>
-          </StackPanel>
+          </StackPanel>-->
         </Expander>
         <!--Sessi-->
         <Expander Header="Список сессий" >
@@ -180,6 +200,8 @@
               <Button Content="Send frame" Command="{Binding CanSendCommand}"
                       IsEnabled="{Binding Connected}" Background="#FAB387"/>
               <Button Content="Stop periodic" Command="{Binding CanPeriodicStopCommand}"
+                      IsEnabled="{Binding Connected}" Background="#313244"/>
+              <Button Content="Read" Command="{Binding StreamOpenCommand}" 
                       IsEnabled="{Binding Connected}" Background="#313244"/>
             </StackPanel>
               <Label>Заготовленные команды</Label>

@@ -10,6 +10,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using testdaemon.Models;
 using testdaemon.Service;
+using testdaemon.Views;
 
 namespace testdaemon.ViewModels;
 
@@ -518,5 +519,13 @@ public partial class MainWindowViewModel : ViewModelBase
         }
         Streams.Clear();
         SelectedStream = null;
+    }
+
+    [RelayCommand]
+    public void Test()
+    {
+        var testwindow = new CanStreamView();
+
+        testwindow.Show();
     }
 }
