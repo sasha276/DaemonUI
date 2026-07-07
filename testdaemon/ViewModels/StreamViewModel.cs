@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using testdaemon.Models;
 
 namespace testdaemon.ViewModels;
@@ -21,21 +22,23 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
     public int    LocalPort  { get; }
     public ushort ServerPort { get; }
 
-    [ObservableProperty] private bool _isActive = true;
+    [ObservableProperty] private bool _isActive;
     [ObservableProperty] private int  _frameCount;
     [ObservableProperty] private string _lastFrame = "";
 
     /// <summary>Принятые CAN-фреймы именно этого стрима.</summary>
     public ObservableCollection<LogEntry> Frames { get; } = [];
 
-    /// <summary>Заголовок для списка стримов на второй странице.</summary>
     public string Title => $"session {SessionId}  ·  :{LocalPort}";
 
     public string StatusText => IsActive ? "● live" : "○ closed";
 
     private readonly UdpClient _socket;
-    private readonly CancellationTokenSource _cts = new();
     private readonly int _maxFrames;
+
+    private CancellationTokenSource? _cts;
+    private Task? _receiveTask;
+    private readonly SemaphoreSlim _stateLock = new(1, 1);
 
     public StreamViewModel(ushort sessionId, int localPort, ushort serverPort,
                            UdpClient socket, int maxFrames = 2000)
@@ -47,10 +50,57 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
         _maxFrames = maxFrames;
     }
 
-    /// <summary>Запускает фоновый приём фреймов. Вызывать сразу после создания.</summary>
+    /// <summary>Запускает фоновый приём фреймов. Можно вызывать повторно после Stop.</summary>
     public void StartReceiving()
     {
-        _ = ReceiveLoopAsync(_cts.Token);
+        _ = StartReceivingAsync();
+    }
+
+    [RelayCommand]
+    async Task StartReceivingAsync()
+    {
+        await _stateLock.WaitAsync();
+        try
+        {
+            if (IsActive) return; // уже запущено, второй раз не стартуем
+
+            _cts = new CancellationTokenSource();
+            IsActive = true;
+            _receiveTask = ReceiveLoopAsync(_cts.Token);
+        }
+        finally
+        {
+            _stateLock.Release();
+        }
+    }
+
+    [RelayCommand]
+    async Task StopReceivingAsync()
+    {
+        await _stateLock.WaitAsync();
+        Task? taskToAwait;
+        try
+        {
+            if (!IsActive || _cts is null) return;
+
+            _cts.Cancel();
+            IsActive = false;
+            taskToAwait = _receiveTask;
+        }
+        finally
+        {
+            _stateLock.Release();
+        }
+
+        if (taskToAwait is not null)
+        {
+            try { await taskToAwait; }
+            catch { /* цикл сам гасит свои исключения, тут просто ждём завершения */ }
+        }
+
+        _cts?.Dispose();
+        _cts = null;
+        _receiveTask = null;
     }
 
     private async Task ReceiveLoopAsync(CancellationToken ct)
@@ -66,7 +116,6 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
                 Dispatcher.UIThread.Post(() =>
                 {
                     Frames.Insert(0, entry);
-                    // Ограничиваем размер, чтобы не разрасталась память.
                     while (Frames.Count > _maxFrames)
                         Frames.RemoveAt(Frames.Count - 1);
 
@@ -75,8 +124,8 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
                 });
             }
         }
-        catch (OperationCanceledException) { /* нормальное завершение */ }
-        catch (ObjectDisposedException)    { /* сокет закрыт */ }
+        catch (OperationCanceledException) { /* нормальное завершение по Stop */ }
+        catch (ObjectDisposedException)    { /* сокет закрыт (Dispose всего стрима) */ }
         catch (Exception ex)
         {
             Dispatcher.UIThread.Post(() =>
@@ -95,9 +144,13 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
     public async ValueTask DisposeAsync()
     {
         IsActive = false;
-        try { _cts.Cancel(); } catch { /* ignore */ }
+        try { _cts?.Cancel(); } catch { /* ignore */ }
+        if (_receiveTask is not null)
+        {
+            try { await _receiveTask; } catch { /* ignore */ }
+        }
         try { _socket.Dispose(); } catch { /* ignore */ }
-        _cts.Dispose();
-        await Task.CompletedTask;
+        _cts?.Dispose();
+        _stateLock.Dispose();
     }
 }

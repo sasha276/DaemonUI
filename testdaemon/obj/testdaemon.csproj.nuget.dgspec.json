@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\testdaemon.csproj": {}
+    "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/testdaemon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\testdaemon.csproj": {
+    "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/testdaemon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\testdaemon.csproj",
+        "projectUniqueName": "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/testdaemon.csproj",
         "projectName": "testdaemon",
-        "projectPath": "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\testdaemon.csproj",
-        "packagesPath": "C:\\Users\\НПО САУТ1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\obj\\",
+        "projectPath": "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/testdaemon.csproj",
+        "packagesPath": "/home/alexander/.nuget/packages/",
+        "outputPath": "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\НПО САУТ1\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/alexander/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -85,15 +86,7 @@
               "version": "[8.0.28, 8.0.28]"
             },
             {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.28, 8.0.28]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.28, 8.0.28]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
               "version": "[8.0.28, 8.0.28]"
             }
           ],
@@ -102,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.109/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

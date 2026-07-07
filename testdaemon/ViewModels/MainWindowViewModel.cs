@@ -447,6 +447,13 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    async Task OpenStreamWindowAsync()
+    {
+        var window = new CanStreamView();
+        window.Show();
+    }
+
+    [RelayCommand]
     async Task StreamCloseAsync()
     {
         if (!Check()) return;

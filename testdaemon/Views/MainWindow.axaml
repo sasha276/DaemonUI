@@ -23,7 +23,7 @@
   <Window.Styles>
 
     <Style Selector="TabItem">
-      <Setter Property=""/>
+      <Setter Property="FontSize" Value="14"/>
     </Style>
     
     
@@ -88,69 +88,98 @@
         <!--Devices-->
         <Expander Header="Список устройств">
           
+          <!--Все списки теперь это единая база-->
           <TabControl>
             <TabItem Header="Devices" FontSize="14">
-              
+              <StackPanel>
+                <ListBox ItemsSource="{Binding Devices}"
+                         SelectedItem="{Binding SelectedDevice}"
+                         Height="130">
+
+                  <ListBox.ContextMenu>
+                    <ContextMenu>
+                      <MenuItem Header="Информация по устройству" Command="{Binding DeviceInfoCommand}"/>
+                      <MenuItem Header="Создать сессию" Command="{Binding SessionCreateCommand}"/>
+                    </ContextMenu>
+                  </ListBox.ContextMenu>
+
+                  <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="services:DeviceEntry">
+                      <TextBlock Foreground="#CDD6F4" FontSize="12"
+                                 FontFamily="Cascadia Code,Consolas,monospace"
+                                 Text="{Binding}"/>
+                    </DataTemplate>
+                  </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="Обновить список" Command="{Binding DeviceListCommand}"
+                        IsEnabled="{Binding Connected}" Background="#313244" HorizontalAlignment="Stretch"/>
+              </StackPanel>
             </TabItem>
             
             <TabItem Header="Sessions">
-              
+              <StackPanel>
+                <ListBox ItemsSource="{Binding Sessions}"
+                         SelectedItem="{Binding SelectedSession}"
+                         Height="110">
+
+                  <ListBox.ContextMenu>
+                    <ContextMenu>
+                      <MenuItem Header="Закрыть соединение"
+                                Command="{Binding SessionCloseCommand}"
+                                IsEnabled="{Binding Connected}"/>
+                    </ContextMenu>
+                  </ListBox.ContextMenu>
+
+                  <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="services:SessionEntry">
+                      <TextBlock Foreground="#A6E3A1" FontSize="12"
+                                 FontFamily="Cascadia Code,Consolas,monospace"
+                                 Text="{Binding}"/>
+                    </DataTemplate>
+                  </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="Обновить список" Command="{Binding SessionListCommand}"
+                        IsEnabled="{Binding Connected}" Background="#313244" HorizontalAlignment="Stretch"/>
+              </StackPanel>
             </TabItem>
             
             <TabItem Header="Streams">
-              
+              <StackPanel>
+                <ListBox ItemsSource="{Binding Streams}"
+                         SelectedItem="{Binding SelectedStream}"
+                         IsEnabled="{Binding Connected}"
+                         Height="110">
+                  
+                  <ListBox.ContextMenu>
+                    <ContextMenu>
+                      <MenuItem Header="Просмотреть"
+                                Command="{Binding OpenStreamWindowCommand}"/>
+                      
+                      <MenuItem Header="Close"
+                                Command="{Binding CloseStreamCommand}"/>
+                    </ContextMenu>
+                  </ListBox.ContextMenu>
+                  
+                  <ListBox.ItemTemplate>
+                    <DataTemplate>
+                      <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding SessionId,StringFormat=Session: {0}}"/>
+                        <Separator Width="15" Height="0"/>
+                        <TextBlock Text="{Binding LocalPort,StringFormat=Port:{0}}"/>
+                      </StackPanel>
+                    </DataTemplate>
+                  </ListBox.ItemTemplate>
+                </ListBox>
+              </StackPanel>
             </TabItem>
           </TabControl>
           
-          <!--<StackPanel Spacing="6">
-            <ListBox ItemsSource="{Binding Devices}"
-                     SelectedItem="{Binding SelectedDevice}"
-                     Height="130">
-
-              <ListBox.ContextMenu>
-                <ContextMenu>
-                  <MenuItem Header="Информация по устройству" Command="{Binding DeviceInfoCommand}"/>
-                  <MenuItem Header="Создать сессию" Command="{Binding SessionCreateCommand}"/>
-                </ContextMenu>
-              </ListBox.ContextMenu>
-
-              <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="services:DeviceEntry">
-                  <TextBlock Foreground="#CDD6F4" FontSize="12"
-                             FontFamily="Cascadia Code,Consolas,monospace"
-                             Text="{Binding}"/>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-            </ListBox>
-            <Button Content="Обновить список" Command="{Binding DeviceListCommand}"
-                    IsEnabled="{Binding Connected}" Background="#313244" HorizontalAlignment="Stretch"/>
-          </StackPanel>-->
+          
         </Expander>
         <!--Sessi-->
         <Expander Header="Список сессий" >
           <StackPanel Spacing="6">
-            <ListBox ItemsSource="{Binding Sessions}"
-                     SelectedItem="{Binding SelectedSession}"
-                     Height="110">
-
-              <ListBox.ContextMenu>
-                <ContextMenu>
-                  <MenuItem Header="Закрыть соединение"
-                            Command="{Binding SessionCloseCommand}"
-                            IsEnabled="{Binding Connected}"/>
-                </ContextMenu>
-              </ListBox.ContextMenu>
-
-              <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="services:SessionEntry">
-                  <TextBlock Foreground="#A6E3A1" FontSize="12"
-                             FontFamily="Cascadia Code,Consolas,monospace"
-                             Text="{Binding}"/>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-            </ListBox>
-            <Button Content="Обновить список" Command="{Binding SessionListCommand}"
-                    IsEnabled="{Binding Connected}" Background="#313244" HorizontalAlignment="Stretch"/>
+            
           </StackPanel>
         </Expander>
         <!--Вообще удалится так то-->

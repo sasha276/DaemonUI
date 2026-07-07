@@ -8,7 +8,7 @@
         Background="#1E1E2E"
         x:Class="testdaemon.Views.CanStreamView"
         Title="CanStreamView"
-        x:DataType="viewModels:CanStreamViewModel">
+        x:DataType="viewModels:StreamViewModel">
     
     <Window.Styles>
 
@@ -47,14 +47,19 @@
     </Window.Styles>
     
     <StackPanel>
-        <TextBlock Text=""/>
         
-        <ListBox ItemsSource="{Binding Elements}">
+        <StackPanel Orientation="Horizontal" Spacing="15">
+            <Button Content="Start" Background="GreenYellow" Command="{Binding StartReceivingCommand}" IsEnabled="{Binding !IsActive}"/>
+            <Button Content="Stop" Background="DarkRed" Command="{Binding StopReceivingCommand}" IsEnabled="{Binding IsActive}"/>
+        </StackPanel>
+        
+        <ListBox ItemsSource="{Binding Frames}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Desc}"/>
-                        <TextBlock Text="{Binding Data}"/>
+                        <TextBlock Text="{Binding Prefix}"/>
+                        <Separator Width="10" Height="0"/>
+                        <TextBlock Text="{Binding Display}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

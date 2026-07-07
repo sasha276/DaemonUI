@@ -73,79 +73,155 @@
 /home/alexander/RiderProjects/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.pdb
 /home/alexander/RiderProjects/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.genruntimeconfig.cache
 /home/alexander/RiderProjects/testdaemon/testdaemon/obj/Debug/net8.0/ref/testdaemon.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\testdaemon.exe
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\testdaemon.deps.json
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\testdaemon.runtimeconfig.json
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\testdaemon.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\testdaemon.pdb
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Base.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Controls.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.DesignerSupport.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Dialogs.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Markup.Xaml.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Markup.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Metal.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.MicroCom.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.OpenGL.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Vulkan.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Controls.ColorPicker.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Desktop.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Diagnostics.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Fonts.Inter.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.FreeDesktop.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Native.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Remote.Protocol.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Skia.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Themes.Fluent.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Themes.Simple.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Win32.Automation.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.Win32.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Avalonia.X11.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\CommunityToolkit.Mvvm.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\HarfBuzzSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\MicroCom.Runtime.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\SkiaSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\System.IO.Pipelines.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\Tmds.DBus.Protocol.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-arm64\native\av_libglesv2.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-x64\native\av_libglesv2.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-x86\native\av_libglesv2.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\osx\native\libAvaloniaNative.dylib
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-arm\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-arm64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-loongarch64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-musl-arm\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-musl-arm64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-musl-loongarch64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-musl-riscv64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-riscv64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-x64\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-x86\native\libHarfBuzzSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\osx\native\libHarfBuzzSharp.dylib
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-arm\native\libSkiaSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-arm64\native\libSkiaSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libSkiaSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\linux-x64\native\libSkiaSharp.so
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\osx\native\libSkiaSharp.dylib
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-x64\native\libSkiaSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.csproj.AssemblyReference.cache
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\Avalonia\resources
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.AssemblyInfoInputs.cache
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.AssemblyInfo.cs
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.csproj.CoreCompileInputs.cache
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.csproj.Up2Date
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\refint\testdaemon.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.pdb
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.genruntimeconfig.cache
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\ref\testdaemon.dll
-C:\Users\НПО САУТ1\Desktop\AlexProjects\Daemon\testdaemon\testdaemon\obj\Debug\net8.0\testdaemon.sourcelink.json
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/testdaemon.exe
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/testdaemon.deps.json
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/testdaemon.runtimeconfig.json
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/testdaemon.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/testdaemon.pdb
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Base.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Controls.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.DesignerSupport.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Dialogs.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Markup.Xaml.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Markup.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Metal.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.MicroCom.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.OpenGL.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Vulkan.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Controls.ColorPicker.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Desktop.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Diagnostics.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Fonts.Inter.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.FreeDesktop.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Native.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Remote.Protocol.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Skia.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Themes.Fluent.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Themes.Simple.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Win32.Automation.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.Win32.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Avalonia.X11.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/CommunityToolkit.Mvvm.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/HarfBuzzSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/MicroCom.Runtime.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/SkiaSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/System.IO.Pipelines.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/Tmds.DBus.Protocol.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-arm64/native/av_libglesv2.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-x64/native/av_libglesv2.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-x86/native/av_libglesv2.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/osx/native/libAvaloniaNative.dylib
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-arm/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-arm64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-loongarch64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-arm/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-arm64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-loongarch64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-riscv64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-x64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-riscv64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-x64/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-x86/native/libHarfBuzzSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/osx/native/libHarfBuzzSharp.dylib
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-arm64/native/libHarfBuzzSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-x64/native/libHarfBuzzSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-x86/native/libHarfBuzzSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-arm/native/libSkiaSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-arm64/native/libSkiaSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-x64/native/libSkiaSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/linux-x64/native/libSkiaSharp.so
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/osx/native/libSkiaSharp.dylib
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-arm64/native/libSkiaSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-x64/native/libSkiaSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/bin/Debug/net8.0/runtimes/win-x86/native/libSkiaSharp.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.csproj.AssemblyReference.cache
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/Avalonia/resources
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.AssemblyInfoInputs.cache
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.AssemblyInfo.cs
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.csproj.CoreCompileInputs.cache
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.csproj.Up2Date
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/refint/testdaemon.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.pdb
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.genruntimeconfig.cache
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/ref/testdaemon.dll
+C:/Users/НПО САУТ1/Desktop/AlexProjects/Daemon/testdaemon/testdaemon/obj/Debug/net8.0/testdaemon.sourcelink.json
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/testdaemon
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/testdaemon.deps.json
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/testdaemon.runtimeconfig.json
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/testdaemon.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/testdaemon.pdb
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Base.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Controls.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.DesignerSupport.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Dialogs.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Markup.Xaml.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Markup.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Metal.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.MicroCom.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.OpenGL.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Vulkan.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Controls.ColorPicker.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Desktop.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Diagnostics.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Fonts.Inter.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.FreeDesktop.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Native.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Remote.Protocol.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Skia.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Themes.Fluent.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Themes.Simple.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Win32.Automation.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.Win32.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Avalonia.X11.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/CommunityToolkit.Mvvm.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/HarfBuzzSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/MicroCom.Runtime.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/SkiaSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/System.IO.Pipelines.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/Tmds.DBus.Protocol.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-arm64/native/av_libglesv2.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-x64/native/av_libglesv2.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-x86/native/av_libglesv2.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/osx/native/libAvaloniaNative.dylib
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-arm/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-arm64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-loongarch64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-arm/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-arm64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-loongarch64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-riscv64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-x64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-riscv64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-x64/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-x86/native/libHarfBuzzSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/osx/native/libHarfBuzzSharp.dylib
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-arm64/native/libHarfBuzzSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-x64/native/libHarfBuzzSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-x86/native/libHarfBuzzSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-arm/native/libSkiaSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-arm64/native/libSkiaSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-musl-x64/native/libSkiaSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/linux-x64/native/libSkiaSharp.so
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/osx/native/libSkiaSharp.dylib
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-arm64/native/libSkiaSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-x64/native/libSkiaSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/bin/Debug/net8.0/runtimes/win-x86/native/libSkiaSharp.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.csproj.AssemblyReference.cache
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/Avalonia/resources
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.GeneratedMSBuildEditorConfig.editorconfig
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.AssemblyInfoInputs.cache
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.AssemblyInfo.cs
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.csproj.CoreCompileInputs.cache
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.sourcelink.json
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.csproj.Up2Date
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/refint/testdaemon.dll
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.pdb
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/testdaemon.genruntimeconfig.cache
+/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/Debug/net8.0/ref/testdaemon.dll
