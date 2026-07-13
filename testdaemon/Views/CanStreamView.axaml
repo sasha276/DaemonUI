@@ -49,6 +49,7 @@
     <StackPanel>
         
         <StackPanel Orientation="Horizontal" Spacing="15">
+            <ToggleSwitch IsChecked="{Binding FloatingWindow}"/>
             <Button Content="Start" Background="GreenYellow" Command="{Binding StartReceivingCommand}" IsEnabled="{Binding !IsActive}"/>
             <Button Content="Stop" Background="DarkRed" Command="{Binding StopReceivingCommand}" IsEnabled="{Binding IsActive}"/>
         </StackPanel>

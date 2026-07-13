@@ -1,0 +1,31 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:services="clr-namespace:testdaemon.Models"
+             xmlns:vm="clr-namespace:testdaemon.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="testdaemon.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+    <Grid RowDefinitions="Auto,*">
+        <StackPanel Grid.Row="0">
+            <TextBlock Grid.Row="0" Text="Настройки"/>
+            <Button Content="Назад" Command="{Binding GoHomeCommand}"/>
+        </StackPanel>
+
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding SettingsService.Items}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="services:Settings">
+                    <Grid ColumnDefinitions="Auto,*" Margin="0,4">
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Cheked}"/>
+                        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Desc}" Classes="label" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

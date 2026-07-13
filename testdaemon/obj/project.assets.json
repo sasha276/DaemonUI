@@ -124,6 +124,19 @@
           }
         }
       },
+      "Avalonia.Controls.TreeDataGrid/11.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.0.0",
+          "System.Reactive": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll": {}
+        }
+      },
       "Avalonia.Desktop/11.3.6": {
         "type": "package",
         "dependencies": {
@@ -587,6 +600,22 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "System.Reactive/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net5.0/_._": {}
+        }
+      },
       "Tmds.DBus.Protocol/0.21.2": {
         "type": "package",
         "dependencies": {
@@ -821,6 +850,18 @@
         "lib/net8.0/Avalonia.Controls.ColorPicker.xml",
         "lib/netstandard2.0/Avalonia.Controls.ColorPicker.dll",
         "lib/netstandard2.0/Avalonia.Controls.ColorPicker.xml"
+      ]
+    },
+    "Avalonia.Controls.TreeDataGrid/11.1.0": {
+      "sha512": "GfSvNy+8spTynyA2x86XCZGTMzm0kMIoZrBuqbFzuFL87PA6zXg3LCQ1RD6nKqPO6c4jQacgaX9a7ld9rBLdPA==",
+      "type": "package",
+      "path": "avalonia.controls.treedatagrid/11.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "avalonia.controls.treedatagrid.11.1.0.nupkg.sha512",
+        "avalonia.controls.treedatagrid.nuspec",
+        "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll"
       ]
     },
     "Avalonia.Desktop/11.3.6": {
@@ -1437,6 +1478,35 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.Reactive/5.0.0": {
+      "sha512": "erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "type": "package",
+      "path": "system.reactive/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net5.0/_._",
+        "build/netcoreapp3.1/System.Reactive.dll",
+        "build/netcoreapp3.1/System.Reactive.targets",
+        "build/netcoreapp3.1/System.Reactive.xml",
+        "buildTransitive/net5.0/_._",
+        "buildTransitive/netcoreapp3.1/System.Reactive.targets",
+        "lib/net472/System.Reactive.dll",
+        "lib/net472/System.Reactive.xml",
+        "lib/net5.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net5.0-windows10.0.19041/System.Reactive.xml",
+        "lib/net5.0/System.Reactive.dll",
+        "lib/net5.0/System.Reactive.xml",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.xml",
+        "lib/uap10.0.16299/System.Reactive.dll",
+        "lib/uap10.0.16299/System.Reactive.pri",
+        "lib/uap10.0.16299/System.Reactive.xml",
+        "system.reactive.5.0.0.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
+    },
     "Tmds.DBus.Protocol/0.21.2": {
       "sha512": "ScSMrUrrw8px4kK1Glh0fZv/HQUlg1078bNXNPfRPKQ3WbRzV9HpsydYEOgSoMK5LWICMf2bMwIFH0pGjxjcMA==",
       "type": "package",
@@ -1456,6 +1526,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Avalonia >= 11.3.6",
+      "Avalonia.Controls.TreeDataGrid >= 11.1.0",
       "Avalonia.Desktop >= 11.3.6",
       "Avalonia.Diagnostics >= 11.3.6",
       "Avalonia.Fonts.Inter >= 11.3.6",
@@ -1464,19 +1535,19 @@
     ]
   },
   "packageFolders": {
-    "/home/alexander/.nuget/packages/": {}
+    "C:\\Users\\НПО САУТ1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/testdaemon.csproj",
+      "projectUniqueName": "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\testdaemon.csproj",
       "projectName": "testdaemon",
-      "projectPath": "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/testdaemon.csproj",
-      "packagesPath": "/home/alexander/.nuget/packages/",
-      "outputPath": "/home/alexander/Documents/Work/daem/DaemonUI/testdaemon/obj/",
+      "projectPath": "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\testdaemon.csproj",
+      "packagesPath": "C:\\Users\\НПО САУТ1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\НПО САУТ1\\Desktop\\AlexProjects\\Daemon\\testdaemon\\testdaemon\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/alexander/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\НПО САУТ1\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1499,8 +1570,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "10.0.100"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -1509,6 +1579,10 @@
           "Avalonia": {
             "target": "Package",
             "version": "[11.3.6, )"
+          },
+          "Avalonia.Controls.TreeDataGrid": {
+            "target": "Package",
+            "version": "[11.1.0, )"
           },
           "Avalonia.Desktop": {
             "target": "Package",
@@ -1548,7 +1622,15 @@
             "version": "[8.0.28, 8.0.28]"
           },
           {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.28, 8.0.28]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.28, 8.0.28]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
             "version": "[8.0.28, 8.0.28]"
           }
         ],
@@ -1557,8 +1639,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.109/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

@@ -13,6 +13,8 @@ public enum Cmd : ushort
     Register         = 0x0001,
     Unregister       = 0x0002,
     Ping             = 0x0003,
+    DeviceGetVersion    = 0x0004,
+    DeviceCheckUart =0x0005,
     DeviceList       = 0x0010,
     DeviceInfo       = 0x0011,
     SessionCreate    = 0x0020,
@@ -32,7 +34,7 @@ public enum Cmd : ushort
     Error            = 0xFFFF,
 }
 
-/// Режимы работы UART-линии АППИ (как в протоколе).
+/// Режимы работы UART-линии АППИ.
 public enum UartMode : byte
 {
     Rsdd     = 0x01,
@@ -236,10 +238,19 @@ public class DaemonClient : IAsyncDisposable
     // Device commands
     public async Task<string> GetVersionAsync(ushort sessionId)
         => Encoding.UTF8.GetString(await TxRxAsync(sessionId, Cmd.GetVersion, []));
+    
+    public async Task<string> GetVersionDeviceAsync(ushort deviceIndex)
+        => Encoding.UTF8.GetString(await TxRxAsync(0, Cmd.DeviceGetVersion, Packet.From(deviceIndex)));
 
     public async Task<bool> CheckUartAsync(ushort sessionId)
     {
         var p = await TxRxAsync(sessionId, Cmd.CheckUart, []);
+        return p.Length > 0 && p[0] != 0;
+    }
+
+    public async Task<bool> CheckUartDeviceAsync(ushort deviceIndex)
+    {
+        var p = await TxRxAsync(0, Cmd.DeviceCheckUart, Packet.From(deviceIndex));
         return p.Length > 0 && p[0] != 0;
     }
 

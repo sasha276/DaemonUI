@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Sockets;
 using System.Text;
@@ -8,16 +9,13 @@ using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using testdaemon.Models;
+using testdaemon.Views;
 
 namespace testdaemon.ViewModels;
 
-/// <summary>
-/// Представляет один открытый CAN-стрим: владеет собственным UDP-сокетом,
-/// токеном отмены, фоновым приёмником и своей коллекцией принятых фреймов.
-/// </summary>
 public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
 {
-    // Параметры стрима
+    
     public ushort SessionId  { get; }
     public int    LocalPort  { get; }
     public ushort ServerPort { get; }
@@ -26,7 +24,16 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
     [ObservableProperty] private int  _frameCount;
     [ObservableProperty] private string _lastFrame = "";
 
-    /// <summary>Принятые CAN-фреймы именно этого стрима.</summary>
+    [ObservableProperty] private bool floatingWindow = false;
+
+    partial void OnFloatingWindowChanged(bool oldValue, bool newValue)
+    {
+        if (newValue)
+            StreamWindowManager.Open(this);
+        else
+            StreamWindowManager.Close(SessionId);
+    }
+
     public ObservableCollection<LogEntry> Frames { get; } = [];
 
     public string Title => $"session {SessionId}  ·  :{LocalPort}";
@@ -50,7 +57,6 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
         _maxFrames = maxFrames;
     }
 
-    /// <summary>Запускает фоновый приём фреймов. Можно вызывать повторно после Stop.</summary>
     public void StartReceiving()
     {
         _ = StartReceivingAsync();
@@ -62,7 +68,7 @@ public partial class StreamViewModel : ViewModelBase, IAsyncDisposable
         await _stateLock.WaitAsync();
         try
         {
-            if (IsActive) return; // уже запущено, второй раз не стартуем
+            if (IsActive) return;
 
             _cts = new CancellationTokenSource();
             IsActive = true;

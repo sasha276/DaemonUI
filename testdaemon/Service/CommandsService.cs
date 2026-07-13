@@ -5,30 +5,37 @@ using System.IO;
 using System.Text.Json;
 using Avalonia.Platform;
 using CommunityToolkit.Mvvm.ComponentModel;
+using testdaemon.Models;
 
 namespace testdaemon.Service;
 
-public partial class CommandGroup : ObservableObject
-{
-    [ObservableProperty] private string _name = string.Empty;
-    public ObservableCollection<CommandBody> Items { get; set; } = [];
-}
-
-public partial class CommandBody : ObservableObject
+public partial class CommandNode : ObservableObject
 {
     [ObservableProperty] private string _name = string.Empty;
     [ObservableProperty] private string _id = string.Empty;
     [ObservableProperty] private string _body = string.Empty;
+
+    public ObservableCollection<CommandNode>? Children { get; set; }
+
+    public bool IsGroup => Children != null;
 }
 
-public class CommandsWrapper
+
+file class CommandBodyDto
 {
-    public Dictionary<string, List<CommandBody>> Commands { get; set; } = new();
+    public string Name { get; set; } = string.Empty;
+    public string Id { get; set; } = string.Empty;
+    public string Body { get; set; } = string.Empty;
+}
+
+file class CommandsWrapper
+{
+    public Dictionary<string, List<CommandBodyDto>> Commands { get; set; } = new();
 }
 
 public class CommandsService
 {
-    public ObservableCollection<CommandGroup> Groups { get; set; } = [];
+    public ObservableCollection<CommandNode> Groups { get; } = [];
 
     public void Load(string json)
     {
@@ -36,14 +43,29 @@ public class CommandsService
         Groups.Clear();
         if (wrapper?.Commands == null) return;
 
-        foreach (var (key, list) in wrapper.Commands)
+        foreach (var (groupName, items) in wrapper.Commands)
         {
-            var group = new CommandGroup { Name = key };
-            foreach (var item in list) group.Items.Add(item);
-            Groups.Add(group);
+            var children = new ObservableCollection<CommandNode>();
+            foreach (var item in items)
+            {
+                children.Add(new CommandNode
+                {
+                    Name = item.Name,
+                    Id   = item.Id,
+                    Body = item.Body,
+                });
+            }
+
+            Groups.Add(new CommandNode
+            {
+                Name     = groupName,
+                Children = children, // не null — это группа
+            });
         }
     }
 }
+
+
 
 public static class FileService
 {
@@ -53,5 +75,11 @@ public static class FileService
         using var reader = new StreamReader(stream);
         return reader.ReadToEnd();
     }
-}
 
+    public static string LoadSettingsJson()
+    {
+        using var stream = AssetLoader.Open(new Uri("avares://testdaemon/Assets/Settings.json"));
+        using var reader = new StreamReader(stream);
+        return reader.ReadToEnd();
+    }
+}

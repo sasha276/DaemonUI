@@ -1,0 +1,359 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="testdaemon.Views.HomeView"
+             
+             
+             xmlns:vm="clr-namespace:testdaemon.ViewModels"
+             xmlns:services="clr-namespace:testdaemon.Service"
+             xmlns:m="clr-namespace:testdaemon.Models"
+             x:DataType="vm:HomeViewModel">
+    <Grid RowDefinitions="Auto,*,180" ColumnDefinitions="*,Auto">
+   
+    <StackPanel Grid.Row="0"
+                Orientation="Horizontal"
+                Spacing="15"
+                Margin="10">
+      
+      <ToggleButton Content="☀" IsChecked="{Binding ThemeService.IsLight}"
+                    Classes="ghost" ToolTip.Tip="Светлая/тёмная тема"/>
+      
+      <TextBox Watermark="Адрес" Text="{Binding Host}" IsEnabled="{Binding !Connected}"/>
+      <TextBox Watermark="Порт" Text="{Binding Port}" IsEnabled="{Binding !Connected}"/>
+      <Button Content="Ping" Command="{Binding PingCommand}"/>
+      
+      <ToggleButton Classes="power"
+                    IsChecked="{Binding Connected}">
+        <PathIcon Data="M12,3C11.45,3 11,3.45 11,4V12C11,12.55 11.45,13 12,13C12.55,13 13,12.55 13,12V4C13,3.45 12.55,3 12,3M17.83,5.17L16.41,6.59C18.05,7.91 19,9.9 19,12A7,7 0 0,1 12,19A7,7 0 0,1 5,12C5,9.89 5.94,7.91 7.58,6.58L6.17,5.17C4.23,6.82 3,9.26 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12C21,9.25 19.77,6.82 17.83,5.17Z"/>
+      </ToggleButton>
+      
+      <ToggleSwitch IsChecked="{Binding AdditionalWindow}"/>
+      
+      <Button Content="Настройки" Command="{Binding GoToSettingsCommand}" />
+    </StackPanel>
+      
+      <ScrollViewer Grid.Row="1" Grid.Column="0">
+                <StackPanel Spacing="14" Margin="0,10,0,0">
+
+                  <Border BorderBrush="{DynamicResource BorderBrush2}" BorderThickness="1"
+                          HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                      <ToggleButton Classes="segment" Content="Все" IsChecked="True"/>
+                      <ToggleButton Classes="segment" Content="Подключены"/>
+                    </StackPanel>
+                  </Border>
+
+                  <ItemsControl ItemsSource="{Binding Devices}">
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate x:DataType="services:DeviceEntry">
+                        <ContentControl Theme="{StaticResource BracketCard}" Margin="6,10,6,10">
+                          <StackPanel Spacing="7">
+                            <TextBlock Classes="eyebrow" Text="{Binding Vid, StringFormat='VID {0:X4} · PID '}"/>
+                            <TextBlock Classes="heading">
+                              <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                  <Binding Path="Manufacturer"/>
+                                  <Binding Path="Product"/>
+                                </MultiBinding>
+                              </TextBlock.Text>
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                              <Ellipse Width="7" Height="7" Fill="{DynamicResource AccentBrush}"/>
+                              <TextBlock Classes="label" Text="{Binding Port, StringFormat='Порт {0}'}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="7" Margin="0,7,0,0">
+                              <Button Classes="ghost" Content="Инфо" HorizontalAlignment="Stretch"
+                                      Command="{Binding $parent[UserControl].((vm:HomeViewModel)DataContext).DeviceInfoForCommand}"
+                                      CommandParameter="{Binding}"/>
+                              <Button Classes="accent" Content="Сессия" HorizontalAlignment="Stretch"
+                                      Command="{Binding $parent[UserControl].((vm:HomeViewModel)DataContext).OpenDeviceSessionCommand}"
+                                      CommandParameter="{Binding}"/>
+                            </StackPanel>
+                          </StackPanel>
+                        </ContentControl>
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+
+                  <Button Content="Обновить список" Command="{Binding DeviceListCommand}"
+                          IsEnabled="{Binding Connected}" Classes="ghost" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+              </ScrollViewer>
+
+    <!--<ScrollViewer Grid.Row="1" Margin="10,0,10,10">
+      <StackPanel Spacing="8">
+        ~1~Devices@1@
+        <Expander Header="Список устройств">
+          
+          ~1~Все списки теперь это единая база@1@
+          <TabControl>
+            ~1~<TabItem Header="Devices" FontSize="14">
+              <StackPanel>
+                <ListBox ItemsSource="{Binding Devices}"
+                         SelectedItem="{Binding SelectedDevice}"
+                         Classes="Elements">
+
+                  <ListBox.ContextMenu>
+                    <ContextMenu>
+                      <MenuItem Header="CheckVersion" Command="{Binding GetVersionDeviceCommand}"/>
+                      <MenuItem Header="CheckUart" Command="{Binding CheckDeviceUartASyncCommand}"/>
+                      <MenuItem Header="Информация по устройству" Command="{Binding DeviceInfoCommand}"/>
+                      <MenuItem Header="Создать сессию" Command="{Binding SessionCreateCommand}"/>
+                    </ContextMenu>
+                  </ListBox.ContextMenu>
+
+                  <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="services:DeviceEntry">
+                      <TextBlock Foreground="#CDD6F4" FontSize="12"
+                                 FontFamily="Cascadia Code,Consolas,monospace"
+                                 Text="{Binding}"/>
+                    </DataTemplate>
+                  </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="Обновить список" Command="{Binding DeviceListCommand}"
+                        IsEnabled="{Binding Connected}" Background="#313244" HorizontalAlignment="Stretch"/>
+              </StackPanel>
+            </TabItem>@1@
+            
+            <TabItem Header="Devices" FontSize="14">
+              
+            </TabItem>
+            
+            <TabItem Header="Sessions">
+              <StackPanel>
+                <ListBox ItemsSource="{Binding Sessions}"
+                         SelectedItem="{Binding SelectedSession}"
+                         Classes="Elements">
+
+                  <ListBox.ContextMenu>
+                    <ContextMenu>
+                      <MenuItem Header="Закрыть соединение"
+                                Command="{Binding SessionCloseCommand}"
+                                IsEnabled="{Binding Connected}"/>
+                    </ContextMenu>
+                  </ListBox.ContextMenu>
+
+                  <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="services:SessionEntry">
+                      <TextBlock Foreground="#A6E3A1" FontSize="12"
+                                 FontFamily="Cascadia Code,Consolas,monospace"
+                                 Text="{Binding}"/>
+                    </DataTemplate>
+                  </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="Обновить список" Command="{Binding SessionListCommand}"
+                        IsEnabled="{Binding Connected}" Background="#313244" HorizontalAlignment="Stretch"/>
+              </StackPanel>
+            </TabItem>
+            
+            <TabItem Header="Streams">
+              <StackPanel>
+                <ListBox x:Name="StreamsListBox"
+                         ItemsSource="{Binding Streams}"
+                         SelectedItem="{Binding SelectedStream}"
+                         IsEnabled="{Binding Connected}"
+                         Classes="Elements">
+                  
+                  <ListBox.ContextMenu>
+                    <ContextMenu>
+                      <MenuItem Header="Просмотреть"
+                                Command="{Binding OpenStreamWindowCommand}"/>
+                      
+                      <MenuItem Header="Close"
+                                Command="{Binding CloseStreamCommand}"
+                                CommandParameter="{Binding #StreamsListBox.SelectedItem}"/>
+                    </ContextMenu>
+                  </ListBox.ContextMenu>
+                  
+                  <ListBox.ItemTemplate>
+                    <DataTemplate>
+                      <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding SessionId,StringFormat=Session: {0}}"/>
+                        <Separator Width="15" Height="0"/>
+                        <TextBlock Text="{Binding LocalPort,StringFormat=Port:{0}}"/>
+                      </StackPanel>
+                    </DataTemplate>
+                  </ListBox.ItemTemplate>
+                  
+                </ListBox>
+              </StackPanel>
+            </TabItem>
+          </TabControl>
+        </Expander>
+        ~1~Действия@1@
+        <Expander Header="Действия">
+          <TabControl>
+            ~1~Can@1@
+            <TabItem Header="Can">
+              <StackPanel>
+                <Grid ColumnDefinitions="60,*">
+                  <TextBlock Classes="label" Text="Iface"/>
+                  <ComboBox Grid.Column="1" SelectedIndex="{Binding CanIfaceIndex}"
+                            HorizontalAlignment="Stretch">
+                    <ComboBoxItem>CAN1</ComboBoxItem>
+                    <ComboBoxItem>CAN2</ComboBoxItem>
+                    <ComboBoxItem>CAN3</ComboBoxItem>
+                    <ComboBoxItem>CAN4</ComboBoxItem>
+                    <ComboBoxItem>CANTech</ComboBoxItem>
+                  </ComboBox>
+                </Grid>
+                <Grid ColumnDefinitions="60,*">
+                  <TextBlock Classes="label" Text="ID (hex)"/>
+                  <TextBox Grid.Column="1" Text="{Binding CanId}"
+                           FontFamily="Cascadia Code,Consolas,monospace"/>
+                </Grid>
+                <Grid ColumnDefinitions="60,*">
+                  <TextBlock Classes="label" Text="Data"/>
+                  <TextBox Grid.Column="1" Text="{Binding CanData}"
+                           FontFamily="Cascadia Code,Consolas,monospace"/>
+                </Grid>
+                <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                  <CheckBox IsChecked="{Binding IsPeriodic}" Foreground="#CDD6F4"
+                            FontSize="13" Content="Periodic"/>
+                  <TextBlock Classes="label" Text="interval ms" IsVisible="{Binding IsPeriodic}"/>
+                  <TextBox Text="{Binding CanInterval}" Width="60"
+                           IsVisible="{Binding IsPeriodic}"
+                           FontFamily="Cascadia Code,Consolas,monospace"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                  <Button Content="Send frame" Command="{Binding CanSendCommand}"
+                          IsEnabled="{Binding Connected}" Background="#FAB387"/>
+                  <Button Content="Stop periodic" Command="{Binding CanPeriodicStopCommand}"
+                          IsEnabled="{Binding Connected}" Background="#313244"/>
+                  <Button Content="Read" Command="{Binding StreamOpenCommand}" 
+                          IsEnabled="{Binding Connected}" Background="#313244"/>
+                </StackPanel>
+              </StackPanel>
+            </TabItem>
+            ~1~UART@1@
+            <TabItem Header="Uart">
+              <StackPanel Spacing="7">
+                <Grid ColumnDefinitions="*,Auto">
+                  <TextBlock Classes="label" Text="Статус"/>
+                  <TextBlock Grid.Column="1" Classes="label" Text="{Binding UartStatus}"/>
+                </Grid>
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                  <TextBlock Classes="label" Text="Mode" VerticalAlignment="Center"/>
+                  <ComboBox Grid.Column="1" SelectedIndex="{Binding UartModeIndex}"
+                            HorizontalAlignment="Stretch">
+                    <ComboBoxItem>RSDD  (0x01)</ComboBoxItem>
+                    <ComboBoxItem>RS232 (0x02)</ComboBoxItem>
+                    <ComboBoxItem>RS485 (0x03)</ComboBoxItem>
+                    <ComboBoxItem>Disabled (0x09)</ComboBoxItem>
+                  </ComboBox>
+                </Grid>
+                <Button Content="Configure" Command="{Binding UartConfigureCommand}"
+                        IsEnabled="{Binding Connected}" Background="#89B4FA" HorizontalAlignment="Stretch"/>
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                  <TextBox Text="{Binding UartData}"
+                           FontFamily="Cascadia Code,Consolas,monospace"
+                           Watermark="48 65 6C 6C 6F  (или ASCII, если отмечено)"/>
+                  <CheckBox Grid.Column="1" IsChecked="{Binding UartDataAsAscii}"
+                            Foreground="#CDD6F4" FontSize="13"
+                            Content="ASCII" VerticalAlignment="Center"/>
+                </Grid>
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                  <Button Content="Write" Command="{Binding UartWriteCommand}"
+                          IsEnabled="{Binding Connected}" Background="#FAB387"/>
+                  <Button Content="Read" Command="{Binding UartReadCommand}"
+                          IsEnabled="{Binding Connected}" Background="#313244"/>
+                </StackPanel>
+              </StackPanel>
+            </TabItem>
+            ~1~Gen@1@
+            <TabItem Header="Gen">
+              ~1~В разработке@1@
+            </TabItem>
+            ~1~SaveCommand@1@
+            <TabItem Header="SaveCmd">
+             
+              
+              <TreeDataGrid Source="{Binding CommandsTreeSource  }" Height="200"/>
+              </TabItem>
+          </TabControl>
+        </Expander>
+        ~1~RAW@1@
+        <Expander Header="Собственные пакеты">
+          ~1~Пока в разработке@1@
+          <StackPanel Spacing="7">
+            <TextBlock Classes="label" Text="Ручная сборка пакета (hex-поля)"/>
+            <Grid ColumnDefinitions="70,*">
+              <TextBlock Classes="label" Text="cmd (hex)"/>
+              <TextBox Grid.Column="1" Text="{Binding RawCmd}"
+                       FontFamily="Cascadia Code,Consolas,monospace"/>
+            </Grid>
+            <Grid ColumnDefinitions="70,*">
+              <TextBlock Classes="label" Text="session"/>
+              <TextBox Grid.Column="1" Text="{Binding RawSession}"
+                       FontFamily="Cascadia Code,Consolas,monospace"/>
+            </Grid>
+            <Grid ColumnDefinitions="70,*">
+              <TextBlock Classes="label" Text="payload"/>
+              <TextBox Grid.Column="1" Text="{Binding RawPayload}"
+                       FontFamily="Cascadia Code,Consolas,monospace"/>
+            </Grid>
+            <Button Content="Send raw" Command="{Binding SendRawCommand}"
+                    IsEnabled="{Binding Connected}" Background="#CBA6F7" HorizontalAlignment="Stretch"/>
+          </StackPanel>
+        </Expander>
+
+      </StackPanel>
+    </ScrollViewer>
+
+    <Border Grid.Row="2" Margin="10,0,10,10" Background="#11111B"
+            BorderBrush="#313244" BorderThickness="1" CornerRadius="6"
+            IsVisible="{Binding SettingsService.Items[2].Cheked}">
+      <ListBox ItemsSource="{Binding Logs}" Background="Transparent"
+               BorderThickness="0">
+        <ListBox.ItemTemplate>
+          <DataTemplate x:DataType="m:LogEntry">
+            <TextBlock Text="{Binding Display}"
+                       Foreground="{Binding Level, Converter={StaticResource LevelBrush}}"
+                       FontFamily="Cascadia Code,Consolas,Menlo,monospace"
+                       TextWrapping="Wrap"
+                       FontSize="12" Margin="4,1"/>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </Border>
+    
+    <Grid Grid.Row="0" 
+          Grid.Column="1"
+          Grid.RowSpan="3"
+          RowDefinitions="Auto,Auto,*"
+          Width="400"
+          IsVisible="{Binding AdditionalWindow}">
+
+      <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="10,10,10,4">
+        <Button Content="Start" Background="GreenYellow"
+                Command="{Binding SelectedStream.StartReceivingCommand}"
+                IsEnabled="{Binding SelectedStream.IsActive, Converter={x:Static BoolConverters.Not}}"/>
+        <Button Content="Stop" Background="DarkRed"
+                Command="{Binding SelectedStream.StopReceivingCommand}"
+                IsEnabled="{Binding SelectedStream.IsActive}"/>
+        <ToggleSwitch IsChecked="{Binding SelectedStream.FloatingWindow}"
+                      ToolTip.Tip="Открыть в отдельном окне"/>
+      </StackPanel>
+
+      <TextBlock Grid.Row="1" Classes="label" Margin="10,0,10,6"
+                 Text="{Binding SelectedStream.Title, FallbackValue='Стрим не выбран'}"/>
+
+      <ListBox Grid.Row="2" Margin="10,0,10,10"
+               ItemsSource="{Binding SelectedStream.Frames}">
+        <ListBox.ItemTemplate>
+          <DataTemplate x:DataType="m:LogEntry">
+            <StackPanel Orientation="Horizontal">
+              <TextBlock Text="{Binding Prefix}"/>
+              <Separator Width="10" Height="0"/>
+              <TextBlock Text="{Binding Display}"
+                         FontFamily="Cascadia Code,Consolas,monospace"
+                         FontSize="12"/>
+            </StackPanel>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </Grid>-->
+  </Grid>
+</UserControl>

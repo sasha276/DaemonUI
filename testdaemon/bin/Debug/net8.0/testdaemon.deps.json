@@ -9,6 +9,7 @@
       "testdaemon/1.0.0": {
         "dependencies": {
           "Avalonia": "11.3.6",
+          "Avalonia.Controls.TreeDataGrid": "11.1.0",
           "Avalonia.Desktop": "11.3.6",
           "Avalonia.Diagnostics": "11.3.6",
           "Avalonia.Fonts.Inter": "11.3.6",
@@ -21,6 +22,7 @@
       },
       "Avalonia/11.3.6": {
         "dependencies": {
+          "Avalonia.BuildServices": "0.0.31",
           "Avalonia.Remote.Protocol": "11.3.6",
           "MicroCom.Runtime": "0.11.0"
         },
@@ -76,20 +78,21 @@
           "runtimes/win-arm64/native/av_libglesv2.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.1.25606.0"
           },
           "runtimes/win-x64/native/av_libglesv2.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.1.25606.0"
           },
           "runtimes/win-x86/native/av_libglesv2.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.1.25606.0"
           }
         }
       },
+      "Avalonia.BuildServices/0.0.31": {},
       "Avalonia.Controls.ColorPicker/11.3.6": {
         "dependencies": {
           "Avalonia": "11.3.6",
@@ -99,6 +102,18 @@
           "lib/net8.0/Avalonia.Controls.ColorPicker.dll": {
             "assemblyVersion": "11.3.6.0",
             "fileVersion": "11.3.6.0"
+          }
+        }
+      },
+      "Avalonia.Controls.TreeDataGrid/11.1.0": {
+        "dependencies": {
+          "Avalonia": "11.3.6",
+          "System.Reactive": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll": {
+            "assemblyVersion": "11.1.0.0",
+            "fileVersion": "11.1.0.0"
           }
         }
       },
@@ -184,8 +199,10 @@
           "Avalonia": "11.3.6",
           "HarfBuzzSharp": "8.3.1.1",
           "HarfBuzzSharp.NativeAssets.Linux": "8.3.1.1",
+          "HarfBuzzSharp.NativeAssets.WebAssembly": "8.3.1.1",
           "SkiaSharp": "2.88.9",
-          "SkiaSharp.NativeAssets.Linux": "2.88.9"
+          "SkiaSharp.NativeAssets.Linux": "2.88.9",
+          "SkiaSharp.NativeAssets.WebAssembly": "2.88.9"
         },
         "runtime": {
           "lib/net8.0/Avalonia.Skia.dll": {
@@ -333,6 +350,7 @@
           }
         }
       },
+      "HarfBuzzSharp.NativeAssets.WebAssembly/8.3.1.1": {},
       "HarfBuzzSharp.NativeAssets.Win32/8.3.1.1": {
         "runtimeTargets": {
           "runtimes/win-arm64/native/libHarfBuzzSharp.dll": {
@@ -408,6 +426,7 @@
           }
         }
       },
+      "SkiaSharp.NativeAssets.WebAssembly/2.88.9": {},
       "SkiaSharp.NativeAssets.Win32/2.88.9": {
         "runtimeTargets": {
           "runtimes/win-arm64/native/libSkiaSharp.dll": {
@@ -432,6 +451,14 @@
           "lib/net8.0/System.IO.Pipelines.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "System.Reactive/5.0.0": {
+        "runtime": {
+          "lib/net5.0/System.Reactive.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.1"
           }
         }
       },
@@ -468,12 +495,26 @@
       "path": "avalonia.angle.windows.natives/2.1.25547.20250602",
       "hashPath": "avalonia.angle.windows.natives.2.1.25547.20250602.nupkg.sha512"
     },
+    "Avalonia.BuildServices/0.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KmCN6Hc+45q4OnF10ge450yVUvWuxU6bdQiyKqiSvrHKpahNrEdk0kG6Ip6GHk2SKOCttGQuA206JVdkldEENg==",
+      "path": "avalonia.buildservices/0.0.31",
+      "hashPath": "avalonia.buildservices.0.0.31.nupkg.sha512"
+    },
     "Avalonia.Controls.ColorPicker/11.3.6": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-zgJFM7P7hOS9qcuSUqL2tjBFIsi03qiwAztYjtjtKjfBvLBOrVcmL5qHwjfjeLRLtjHprjMraAHtu3O2vi+51g==",
       "path": "avalonia.controls.colorpicker/11.3.6",
       "hashPath": "avalonia.controls.colorpicker.11.3.6.nupkg.sha512"
+    },
+    "Avalonia.Controls.TreeDataGrid/11.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GfSvNy+8spTynyA2x86XCZGTMzm0kMIoZrBuqbFzuFL87PA6zXg3LCQ1RD6nKqPO6c4jQacgaX9a7ld9rBLdPA==",
+      "path": "avalonia.controls.treedatagrid/11.1.0",
+      "hashPath": "avalonia.controls.treedatagrid.11.1.0.nupkg.sha512"
     },
     "Avalonia.Desktop/11.3.6": {
       "type": "package",
@@ -580,6 +621,13 @@
       "path": "harfbuzzsharp.nativeassets.macos/8.3.1.1",
       "hashPath": "harfbuzzsharp.nativeassets.macos.8.3.1.1.nupkg.sha512"
     },
+    "HarfBuzzSharp.NativeAssets.WebAssembly/8.3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-loJweK2u/mH/3C2zBa0ggJlITIszOkK64HLAZB7FUT670dTg965whLFYHDQo69NmC4+d9UN0icLC9VHidXaVCA==",
+      "path": "harfbuzzsharp.nativeassets.webassembly/8.3.1.1",
+      "hashPath": "harfbuzzsharp.nativeassets.webassembly.8.3.1.1.nupkg.sha512"
+    },
     "HarfBuzzSharp.NativeAssets.Win32/8.3.1.1": {
       "type": "package",
       "serviceable": true,
@@ -615,6 +663,13 @@
       "path": "skiasharp.nativeassets.macos/2.88.9",
       "hashPath": "skiasharp.nativeassets.macos.2.88.9.nupkg.sha512"
     },
+    "SkiaSharp.NativeAssets.WebAssembly/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kt06RccBHSnAs2wDYdBSfsjIDbY3EpsOVqnlDgKdgvyuRA8ZFDaHRdWNx1VHjGgYzmnFCGiTJBnXFl5BqGwGnA==",
+      "path": "skiasharp.nativeassets.webassembly/2.88.9",
+      "hashPath": "skiasharp.nativeassets.webassembly.2.88.9.nupkg.sha512"
+    },
     "SkiaSharp.NativeAssets.Win32/2.88.9": {
       "type": "package",
       "serviceable": true,
@@ -628,6 +683,13 @@
       "sha512": "sha512-FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "path": "system.io.pipelines/8.0.0",
       "hashPath": "system.io.pipelines.8.0.0.nupkg.sha512"
+    },
+    "System.Reactive/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "path": "system.reactive/5.0.0",
+      "hashPath": "system.reactive.5.0.0.nupkg.sha512"
     },
     "Tmds.DBus.Protocol/0.21.2": {
       "type": "package",
