@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
 using System.Text.Json;
 using testdaemon.Models;
 
@@ -32,13 +35,27 @@ public class SettingsService
         public const string ShowLogs       = "Показывать логи";
     }
 
+    private static readonly string SettingsFilePath = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        "testdaemon", "settings.json");
+
     private SettingsService()
     {
-        Load(FileService.LoadSettingsJson());
+        var json = File.Exists(SettingsFilePath)
+            ? File.ReadAllText(SettingsFilePath)
+            : FileService.LoadSettingsJson();
+
+        Load(json);
+
+        if (!File.Exists(SettingsFilePath))
+            Save();
     }
 
     public void Load(string json)
     {
+        foreach (var old in Items)
+            old.PropertyChanged -= OnItemPropertyChanged;
+
         var wrapper = JsonSerializer.Deserialize<SettingsWrapper>(json);
         Items.Clear();
         if (wrapper?.Setting == null) return;
@@ -47,12 +64,46 @@ public class SettingsService
         {
             if (string.IsNullOrWhiteSpace(item.Name)) continue;
 
-            Items.Add(new Settings
+            var setting = new Settings
             {
                 Name   = item.Name,
                 Desc   = item.Desc,
                 Cheked = item.Cheked,
-            });
+            };
+            setting.PropertyChanged += OnItemPropertyChanged;
+            Items.Add(setting);
+        }
+    }
+
+    private void OnItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(Settings.Cheked))
+            Save();
+    }
+
+    public void Save()
+    {
+        try
+        {
+            var dir = Path.GetDirectoryName(SettingsFilePath)!;
+            Directory.CreateDirectory(dir);
+
+            var wrapper = new SettingsWrapper
+            {
+                Setting = Items.Select(i => new SettingDto
+                {
+                    Name   = i.Name,
+                    Desc   = i.Desc,
+                    Cheked = i.Cheked,
+                }).ToList()
+            };
+
+            var json = JsonSerializer.Serialize(wrapper, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(SettingsFilePath, json);
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"SettingsService.Save failed: {ex.Message}");
         }
     }
 

@@ -2,21 +2,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:services="clr-namespace:testdaemon.Models"
+             xmlns:services="clr-namespace:testdaemon.Service"
              xmlns:vm="clr-namespace:testdaemon.ViewModels"
+             xmlns:models="clr-namespace:testdaemon.Models"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="testdaemon.Views.SettingsView"
              x:DataType="vm:SettingsViewModel">
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*">
+
         <StackPanel Grid.Row="0">
-            <TextBlock Grid.Row="0" Text="Настройки"/>
+            <TextBlock Text="Настройки"/>
             <Button Content="Назад" Command="{Binding GoHomeCommand}"/>
         </StackPanel>
 
-
         <ListBox Grid.Row="1" ItemsSource="{Binding SettingsService.Items}">
             <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="services:Settings">
+                <DataTemplate x:DataType="models:Settings">
                     <Grid ColumnDefinitions="Auto,*" Margin="0,4">
                         <CheckBox Grid.Column="0" IsChecked="{Binding Cheked}"/>
                         <StackPanel Grid.Column="1" Margin="10,0,0,0">
@@ -27,5 +28,45 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <ScrollViewer Grid.Row="2">
+            <StackPanel Spacing="10" Margin="0,14,0,10">
+
+                <ContentControl Theme="{StaticResource BracketCard}" Margin="6,10,6,10">
+                    <StackPanel Spacing="10">
+                        <TextBlock Classes="eyebrow" Text="СЛУЖБА APPD"/>
+
+                        <TextBlock Classes="label"
+                                    Text="{Binding InstallSettings.AppdFolder, FallbackValue='Папка не выбрана', TargetNullValue='Папка не выбрана'}"/>
+
+                        <Button Classes="ghost" Content="Выбрать папку с appd.exe"
+                                Command="{Binding PickAppdFolderCommand}" HorizontalAlignment="Stretch"/>
+
+                        <StackPanel Orientation="Horizontal" Spacing="7">
+                            <Button Classes="accent" Content="Установить и запустить"
+                                    Command="{Binding InstallServiceCommand}" HorizontalAlignment="Stretch"/>
+                            <Button Classes="ghost" Content="Удалить службу"
+                                    Command="{Binding UninstallServiceCommand}" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+
+                        <TextBlock Classes="label" Text="{Binding InstallStatus}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </ContentControl>
+
+                <ContentControl Theme="{StaticResource BracketCard}" Margin="6,10,6,10">
+                    <StackPanel Spacing="10">
+                        <TextBlock Classes="eyebrow" Text="ПЕРЕЗАГРУЗКА КОМПЬЮТЕРА"/>
+                        <CheckBox IsChecked="{Binding ConfirmRestart}"
+                                  Content="Понимаю, что все несохранённые данные будут потеряны"/>
+                        <Button Content="Перезагрузить сейчас"
+                                Command="{Binding RestartComputerCommand}"
+                                IsEnabled="{Binding ConfirmRestart}"
+                                Background="DarkRed" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                </ContentControl>
+
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </UserControl>
